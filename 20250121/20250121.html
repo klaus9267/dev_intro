@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>맛있는 제육덮밥 - 돼지고기의 환상적인 맛</title>
+
+    <!-- favicon 위치 -->
+    <!-- <link rel="icon" href="favicon.ico" type="image/x-icon"> -->
+
+    <!-- og 태그 위치 -->
+    <meta property="og:title" content="제일덮밥 제이덮밥 제삼덮밥 제사덮밥 제오덮밥 제육덮밥">
+    <meta property="og:description" content="제칠덮밥 제팔덮밥 제구덮밥 제십덮밥밥">
+    <meta property="og:image" content="me.jpg">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- 웹폰트 위치 -->
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet"> -->
+
+    <style>
+        :root {
+            --primary-color: #FFDFDE;
+            --secondary-color: #6A7BA2;
+        }
+
+        body {
+            background-color: #fff;
+        }
+
+        .navbar {
+            background-color: var(--primary-color);
+        }
+
+        .navbar-brand {
+            color: var(--secondary-color);
+            font-weight: bold;
+        }
+
+        .hero-section {
+            background-color: var(--primary-color);
+        }
+
+        .menu-card {
+            border: none;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+
+        .menu-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-title {
+            color: var(--secondary-color);
+        }
+
+        .custom-btn {
+            background-color: var(--secondary-color);
+            color: white;
+            border: none;
+        }
+
+        .custom-btn:hover {
+            background-color: #566789;
+            color: white;
+        }
+
+        .footer {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 2rem 0;
+        }
+
+        .carousel-control-prev-icon,
+        .carousel-control-next-icon {
+            background-color: var(--secondary-color);
+            border-radius: 50%;
+            padding: 1rem;
+        }
+
+        .carousel-indicators button {
+            background-color: var(--secondary-color) !important;
+        }
+
+        .carousel-item {
+            padding: 4rem 0;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 네비게이션 바 -->
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">맛있는 제육덮밥</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#menu">메뉴</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#location">위치</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">연락처</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 히어로 섹션 (캐러셀) -->
+    <section class="hero-section">
+        <div class="container">
+            <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel">
+                <!-- 캐러셀 인디케이터 -->
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active"></button>
+                    <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1"></button>
+                    <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2"></button>
+                </div>
+
+                <!-- 캐러셀 내용 -->
+                <div class="carousel-inner">
+                    <div class="carousel-item active" data-bs-interval="3000">
+                        <div class="row align-items-center">
+                            <div class="col-lg-6">
+                                <h1 class="display-4">특제 양념으로 만든<br>맛있는 제육덮밥</h1>
+                                <p class="lead">20년 전통의 비법 양념과 신선한 재료로 만듭니다</p>
+                                <button class="btn custom-btn" data-bs-toggle="modal"
+                                    data-bs-target="#orderModal">주문하기</button>
+                            </div>
+                            <div class="col-lg-6">
+                                <img src="./6.jpg" alt="제육덮밥" class="img-fluid rounded">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item" data-bs-interval="3000">
+                        <div class="row align-items-center">
+                            <div class="col-lg-6">
+                                <h1 class="display-4">매일 아침<br>신선한 재료 준비</h1>
+                                <p class="lead">엄선된 돼지고기와 채소로 건강한 한 끼를 제공합니다</p>
+                                <button class="btn custom-btn" data-bs-toggle="modal"
+                                    data-bs-target="#orderModal">주문하기</button>
+                            </div>
+                            <div class="col-lg-6">
+                                <img src="./5.jpg" alt="신선한 재료" class="img-fluid rounded">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item" data-bs-interval="3000">
+                        <div class="row align-items-center">
+                            <div class="col-lg-6">
+                                <h1 class="display-4">푸짐한 양과<br>합리적인 가격</h1>
+                                <p class="lead">든든한 한 끼를 저렴한 가격으로 즐기세요</p>
+                                <button class="btn custom-btn" data-bs-toggle="modal"
+                                    data-bs-target="#orderModal">주문하기</button>
+                            </div>
+                            <div class="col-lg-6">
+                                <img src="./4.png" alt="푸짐한 양" class="img-fluid rounded">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 캐러셀 컨트롤 -->
+                <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon"></span>
+                    <span class="visually-hidden">이전</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon"></span>
+                    <span class="visually-hidden">다음</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- 메뉴 섹션 -->
+    <section id="menu" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">인기 메뉴</h2>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card menu-card">
+                        <img src="./3.jpg" class="card-img-top" alt="제육덮밥">
+                        <div class="card-body">
+                            <h5 class="card-title">제육덮밥</h5>
+                            <p class="card-text">매콤달콤한 특제소스의 제육과 신선한 채소</p>
+                            <p class="card-text"><strong>8,000원</strong></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card menu-card">
+                        <img src="./2.jpg" class="card-img-top" alt="제육덮밥 특">
+                        <div class="card-body">
+                            <h5 class="card-title">제육덮밥 특</h5>
+                            <p class="card-text">푸짐한 고기와 계란후라이가 추가된 특별 메뉴</p>
+                            <p class="card-text"><strong>10,000원</strong></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card menu-card">
+                        <img src="./1.jpg" class="card-img-top" alt="제육덮밥 곱빼기">
+                        <div class="card-body">
+                            <h5 class="card-title">제육덮밥 곱빼기</h5>
+                            <p class="card-text">고기 양이 2배, 든든한 한끼 식사</p>
+                            <p class="card-text"><strong>12,000원</strong></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 위치 섹션 -->
+    <section id="location" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-5">찾아오시는 길</h2>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="ratio ratio-4x3">
+                        <img src="./map.jpg" alt="지도" class="img-fluid rounded">
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <h4>맛있는 제육덮밥</h4>
+                    <p>서울특별시 강남구 테헤란로 123</p>
+                    <p>영업시간: 매일 10:30 - 21:00</p>
+                    <p>전화: 02-123-4567</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 푸터 -->
+    <footer class="footer" id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>맛있는 제육덮밥</h5>
+                    <p>전화: 02-123-4567<br>
+                        주소: 서울특별시 강남구 테헤란로 123</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p>영업시간<br>
+                        매일 10:30 - 21:00</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 주문 모달 -->
+    <div class="modal fade" id="orderModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">배달 주문하기</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <p>배달 주문은 전화로 받고 있습니다.</p>
+                    <p class="lead">02-123-4567</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn custom-btn" data-bs-dismiss="modal">닫기</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
