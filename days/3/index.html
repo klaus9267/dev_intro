@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jabberwocky - 재버워키</title>
+    <!-- 구글 폰트 - 독특하고 지저분한 느낌의 폰트들 -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=East+Sea+Dokdo&family=Gaegu:wght@400;700&family=Poor+Story&family=Stylish&display=swap"
+        rel="stylesheet">
+    <style>
+        @font-face {
+            font-family: 'ChosunGu';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@1.0/ChosunGu.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #2c1810;
+            color: #eee;
+            font-family: 'Poor Story', cursive;
+            line-height: 1.8;
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23594a42' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E");
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
+            min-height: 100vh;
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        .title {
+            font-family: 'East Sea Dokdo', cursive;
+            font-size: 5rem;
+            color: #ffd700;
+            text-align: center;
+            margin: 2rem 0;
+            text-shadow:
+                3px 3px 0 #8b0000,
+                -3px -3px 0 #8b0000,
+                3px -3px 0 #8b0000,
+                -3px 3px 0 #8b0000;
+            transform: rotate(-2deg);
+            letter-spacing: 5px;
+        }
+
+        .subtitle {
+            font-family: 'Stylish', sans-serif;
+            font-size: 2rem;
+            color: #ff9999;
+            text-align: center;
+            margin-bottom: 3rem;
+            transform: rotate(1deg);
+        }
+
+        .poem-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin: 2rem 0;
+            position: relative;
+        }
+
+        .poem-container::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: rgba(255, 215, 0, 0.3);
+            transform: rotate(2deg);
+        }
+
+        .poem {
+            font-family: 'Gaegu', cursive;
+            font-size: 1.4rem;
+            line-height: 2.2;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+            transform: rotate(-1deg);
+        }
+
+        .poem.korean {
+            transform: rotate(1deg);
+            font-family: 'ChosunGu', sans-serif;
+        }
+
+        .stanza {
+            margin-bottom: 2rem;
+            padding: 1rem;
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            border-radius: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .poem-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .poem-container::before {
+                display: none;
+            }
+
+            .title {
+                font-size: 3.5rem;
+            }
+        }
+
+        /* 오래된 종이 질감 효과 */
+        .poem::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h40v40H0V0zm20 20h20v20H20V20zM0 20h20v20H0V20z' fill='%23ffffff' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
+            opacity: 0.1;
+            pointer-events: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="title">Jabberwocky</h1>
+        <p class="subtitle">재버워키 - 이상한 나라의 앨리스</p>
+
+        <div class="poem-container">
+            <div class="poem">
+                <div class="stanza">
+                    'Twas brillig, and the slithy toves
+                    Did gyre and gimble in the wabe:
+                    All mimsy were the borogoves,
+                    And the mome raths outgrabe.
+                </div>
+
+                <div class="stanza">
+                    "Beware the Jabberwock, my son!
+                    The jaws that bite, the claws that catch!
+                    Beware the Jubjub bird, and shun
+                    The frumious Bandersnatch!"
+                </div>
+            </div>
+
+            <div class="poem korean">
+                <div class="stanza">
+                    햇살 비치는 미끌미끌한 토브들이
+                    웨이브 속에서 빙글빙글 맴돌았네
+                    모든 보로고브는 미지근했고
+                    모메 라스들은 밖으로 뛰쳐나갔네
+                </div>
+
+                <div class="stanza">
+                    "재버워크를 조심하거라, 내 아들아!
+                    물어뜯는 턱과 낚아채는 발톱을!
+                    잡잡 새를 조심하고
+                    성난 밴더스내치를 피하거라!"
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

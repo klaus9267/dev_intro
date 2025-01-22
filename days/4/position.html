@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Position 가이드</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: #1a73e8;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            margin: 2rem 0 1rem;
+            color: #2c3e50;
+        }
+
+        .position-section {
+            background: white;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .code-block {
+            background: #f8f9fa;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+            font-family: monospace;
+            overflow-x: auto;
+        }
+
+        .demo-area {
+            background: #f1f3f5;
+            padding: 2rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+            position: relative;
+            min-height: 200px;
+        }
+
+        .box {
+            width: 100px;
+            height: 100px;
+            background: #1a73e8;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+        }
+
+        .box.relative {
+            position: relative;
+            top: 20px;
+            left: 20px;
+            background: #34a853;
+        }
+
+        .box.absolute {
+            position: absolute;
+            top: 40px;
+            right: 40px;
+            background: #ea4335;
+        }
+
+        .box.fixed {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #fbbc04;
+            width: 80px;
+            height: 80px;
+        }
+
+        .sticky-container {
+            height: 300px;
+            overflow-y: scroll;
+            background: white;
+            padding: 1rem;
+            margin: 1rem 0;
+            border: 1px solid #dee2e6;
+        }
+
+        .box.sticky {
+            position: sticky;
+            top: 0;
+            width: 100%;
+            height: 50px;
+            background: #4285f4;
+            margin-bottom: 1rem;
+        }
+
+        .scroll-content {
+            height: 1000px;
+            padding: 1rem;
+            background: linear-gradient(180deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+
+        .stacking-demo {
+            position: relative;
+            height: 200px;
+            background: #f8f9fa;
+            margin: 2rem 0;
+            padding: 1rem;
+            border-radius: 4px;
+        }
+
+        .z-box {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            border-radius: 4px;
+        }
+
+        .z-box-1 {
+            background: rgba(26, 115, 232, 0.8);
+            top: 30px;
+            left: 30px;
+            z-index: 1;
+        }
+
+        .z-box-2 {
+            background: rgba(52, 168, 83, 0.8);
+            top: 60px;
+            left: 60px;
+            z-index: 2;
+        }
+
+        .z-box-3 {
+            background: rgba(234, 67, 53, 0.8);
+            top: 90px;
+            left: 90px;
+            z-index: 3;
+        }
+
+        .note {
+            background: #fff3e0;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-left: 4px solid #ffb74d;
+            border-radius: 0 4px 4px 0;
+        }
+
+        .description {
+            margin-bottom: 1rem;
+        }
+
+        .property-name {
+            color: #1a73e8;
+            font-weight: bold;
+            font-family: monospace;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <a href="/index.html" style="  text-decoration-line: none;">
+            <h1>Position</h1>
+        </a>
+
+        <section class="position-section">
+            <h2>position 속성 값</h2>
+
+            <h3>1. static (기본값)</h3>
+            <div class="description">
+                <p>요소의 기본 위치 지정 방식으로, 문서의 일반적인 흐름을 따름</p>
+                <ul>
+                    <li>문서의 일반적인 흐름을 따름</li>
+                    <li>top, right, bottom, left, z-index 속성이 적용되지 않음</li>
+                </ul>
+            </div>
+            <div class="code-block">
+                .element { position: static; }
+            </div>
+
+            <h3>2. relative</h3>
+            <div class="description">
+                <p>요소를 일반적인 문서 흐름에 따라 배치한 후, 자신의 원래 위치를 기준으로 오프셋 적용</p>
+            </div>
+            <div class="code-block">
+                .element { position: relative; top: 10px; left: 20px; }
+            </div>
+            <div class="demo-area">
+                <div class="box">기준 박스</div>
+                <div class="box relative">relative</div>
+            </div>
+
+            <h3>3. absolute</h3>
+            <div class="description">
+                <p>가장 가까운 위치 지정 조상 요소를 기준으로 배치</p>
+            </div>
+            <div class="code-block">
+                .parent { position: relative; }
+                .child { position: absolute; top: 50px; left: 50px; }
+            </div>
+            <div class="demo-area">
+                <div class="box absolute">absolute</div>
+            </div>
+
+            <h3>4. fixed</h3>
+            <div class="description">
+                <p>뷰포트(브라우저 창)를 기준으로 고정 위치에 배치</p>
+            </div>
+            <div class="code-block">
+                .element { position: fixed; bottom: 20px; right: 20px; }
+            </div>
+            <div class="box fixed">fixed</div>
+
+            <h3>5. sticky</h3>
+            <div class="description">
+                <p>스크롤 위치에 따라 relative에서 fixed로 변경됨</p>
+            </div>
+            <div class="code-block">
+                .element { position: sticky; top: 20px; }
+            </div>
+            <div class="sticky-container">
+                <div class="box sticky">sticky</div>
+                <div class="scroll-content">
+                    스크롤하여 sticky 효과를 확인하세요.
+                </div>
+            </div>
+
+            <h3>z-index</h3>
+            <div class="description">
+                <p>요소의 쌓임 순서(stacking order)를 제어</p>
+            </div>
+            <div class="code-block">
+                .element1 { position: absolute; z-index: 2; }
+                .element2 { position: absolute; z-index: 1; }
+            </div>
+            <div class="stacking-demo">
+                <div class="z-box z-box-1">z-index: 1</div>
+                <div class="z-box z-box-2">z-index: 2</div>
+                <div class="z-box z-box-3">z-index: 3</div>
+            </div>
+        </section>
+    </div>
+</body>
+
+</html>

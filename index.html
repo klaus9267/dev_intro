@@ -1,15 +1,58 @@
 <!DOCTYPE html>
-<html>
+<html lang="ko">
 
 <head>
-    <title>Klaus9267</title>
-    <meta http-equiv="refresh"
-        content="0; url=https://klaus9267-weteam.notion.site/Klaus9267-18292ee2da058068833be7261a8c58ae?pvs=4" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>프로그래머스 AI 백엔드 데브코스 1기</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-<!-- Redirecting 되는 동안 메시지?를 보여주고 싶다면
-   <body>
-      <p>Redirecting to Rainpour's Blog</p>
-   </body>
--->
+
+<body>
+    <div class="container">
+        <header>
+            <h1>프로그래머스 AI 백엔드 데브코스 1기</h1>
+            <div class="period"><b>2025.01.16 ~ 2025.07.18</b>
+                <br>
+                AI 백엔드 데브코스 1기 실습 기록
+            </div>
+        </header>
+        <main id="content">
+            <!-- 여기에 각 day의 내용이 동적으로 로드됩니다 -->
+        </main>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const tilHeaders = document.querySelectorAll('.til-header');
+
+            tilHeaders.forEach(header => {
+                header.addEventListener('click', function () {
+                    const content = this.nextElementSibling;
+                    const toggleBtn = this.querySelector('.toggle-btn');
+
+                    content.classList.toggle('hidden');
+                    toggleBtn.classList.toggle('active');
+                });
+            });
+        });
+        async function loadDays() {
+            const days = ['2', '3', '4', '5']; // 날짜 목록
+            const contentDiv = document.getElementById('content');
+
+            for (const day of days) {
+                try {
+                    const response = await fetch(`days/${day}/day${day}.html`);
+                    const html = await response.text();
+                    contentDiv.innerHTML += html;
+                } catch (error) {
+                    console.error(`Error loading day ${day}:`, error);
+                }
+            }
+        }
+
+        // 페이지 로드 시 내용 불러오기
+        loadDays();
+    </script>
+</body>
 
 </html>
