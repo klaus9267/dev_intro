@@ -23,35 +23,36 @@
     </div>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            const tilHeaders = document.querySelectorAll('.til-header');
-
-            tilHeaders.forEach(header => {
-                header.addEventListener('click', function () {
-                    const content = this.nextElementSibling;
-                    const toggleBtn = this.querySelector('.toggle-btn');
+            // 동적으로 추가된 요소들에 대한 이벤트 처리를 위해 
+            // 이벤트 위임(Event Delegation) 사용
+            document.addEventListener('click', function (e) {
+                if (e.target.closest('.til-header')) {
+                    const header = e.target.closest('.til-header');
+                    const content = header.nextElementSibling;
+                    const toggleBtn = header.querySelector('.toggle-btn');
 
                     content.classList.toggle('hidden');
                     toggleBtn.classList.toggle('active');
-                });
+                }
             });
-        });
-        async function loadDays() {
-            const days = ['2', '3', '4', '5']; // 날짜 목록
-            const contentDiv = document.getElementById('content');
 
-            for (const day of days) {
-                try {
-                    const response = await fetch(`days/${day}/day${day}.html`);
-                    const html = await response.text();
-                    contentDiv.innerHTML += html;
-                } catch (error) {
-                    console.error(`Error loading day ${day}:`, error);
+            async function loadDays() {
+                const days = ['2', '3', '4', '5'];
+                const contentDiv = document.getElementById('content');
+
+                for (const day of days) {
+                    try {
+                        const response = await fetch(`days/${day}/day${day}.html`);
+                        const html = await response.text();
+                        contentDiv.innerHTML += html;
+                    } catch (error) {
+                        console.error(`Error loading day ${day}:`, error);
+                    }
                 }
             }
-        }
 
-        // 페이지 로드 시 내용 불러오기
-        loadDays();
+            loadDays();
+        });
     </script>
 </body>
 

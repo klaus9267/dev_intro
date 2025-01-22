@@ -39,10 +39,29 @@
   background-color: white;
   border-left: 3px solid #2f95ff;
   margin: 0.5rem;
+  /* 내부 컨텐츠를 위한 패딩 추가 */
+  padding-left: 2rem; /* bullet point를 위한 여백 확보 */
 }
 
 .til-content.hidden {
   display: none;
+}
+
+.til-content ul,
+.til-content ol {
+  margin-left: 1rem; /* 리스트 자체에 여백 추가 */
+  margin-bottom: 1rem; /* 리스트 사이 간격 */
+}
+
+.til-content li {
+  margin-bottom: 0.5rem; /* 리스트 아이템 사이 간격 */
+}
+
+/* 헤더 스타일링 */
+.til-content h3,
+.til-content h4 {
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
 }
 
 .til-text {

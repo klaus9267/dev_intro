@@ -12,4 +12,76 @@
             <a href="/days/4/index.html">최종 실습</a>
         </li>
     </ul>
+    <div class="til-container">
+        <div class="til-header">
+            <h3>TIL (Today I Learned)</h3>
+            <button class="toggle-btn">▼</button>
+        </div>
+        <div class="til-content hidden">
+            <h3>오늘의 학습</h3>
+
+            <h4>1. Position 속성의 심층 이해</h4>
+            <ul>
+                <li>CSS Position 속성은 웹 요소의 배치 방식을 제어하는 핵심 기술</li>
+                <li>각 Position 값의 고유한 특성과 동작 방식 학습
+                    <ul>
+                        <li><code>static</code>: 문서의 기본 흐름을 따르는 기본 상태</li>
+                        <li><code>relative</code>: 원래 위치를 기준으로 상대적 이동 가능</li>
+                        <li><code>absolute</code>: 문서 흐름에서 제거되고 가장 가까운 위치 지정 조상을 기준으로 배치</li>
+                        <li><code>fixed</code>: 뷰포트를 기준으로 고정된 위치 유지</li>
+                        <li><code>sticky</code>: 스크롤에 따라 동작이 변하는 하이브리드 포지셔닝</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h4>2. z-index의 작동 원리</h4>
+            <ul>
+                <li>요소의 쌓임 순서(stacking order)를 제어하는 속성</li>
+                <li>숫자가 높을수록 상위에 배치</li>
+                <li>position이 static이 아닌 요소에만 적용 가능</li>
+                <li>음수 값도 사용 가능하여 유연한 레이아웃 구성 가능</li>
+            </ul>
+
+            <h4>3. Flexbox의 혁신적인 레이아웃 모델</h4>
+            <ul>
+                <li>1차원 레이아웃 모델로 요소 간 공간 배분과 정렬을 혁신적으로 단순화</li>
+                <li>Flex 컨테이너와 Flex 아이템의 개념 이해
+                    <ul>
+                        <li>Flex 컨테이너: <code>display: flex</code>로 생성</li>
+                        <li>Flex 아이템: 컨테이너의 직계 자식 요소</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h3>새롭게 알게된 점</h3>
+
+            <h4>1. 레이아웃 설계의 복잡성</h4>
+            <ul>
+                <li>Position과 Flexbox의 조합으로 더욱 정교한 레이아웃 구현 가능</li>
+                <li>각 속성의 미묘한 차이가 전체 레이아웃에 큰 영향을 미침</li>
+            </ul>
+
+            <h4>2. 반응형 디자인과의 연관성</h4>
+            <ul>
+                <li>Flexbox의 유연한 특성이 반응형 웹 디자인에 핵심적인 역할</li>
+                <li>미디어 쿼리와 결합하여 다양한 디바이스에 최적화된 레이아웃 구현</li>
+            </ul>
+
+            <h4>3. 성능과 최적화 고려사항</h4>
+            <ul>
+                <li>과도한 중첩된 Position 사용은 렌더링 성능에 부정적 영향</li>
+                <li>Flexbox의 효율적인 속성 활용으로 성능 최적화 가능</li>
+            </ul>
+
+            <h3>앞으로 학습할 내용</h3>
+            <ol>
+                <li>Grid 레이아웃 심층 학습</li>
+                <li>복잡한 반응형 디자인 패턴 연구</li>
+                <li>CSS 레이아웃 성능 최적화 기법</li>
+                <li>다양한 디바이스에 대응하는 레이아웃 설계 전략</li>
+            </ol>
+
+            <p>레이아웃은 단순한 기술적 문제를 넘어 사용자 경험을 결정하는 중요한 요소입니다. 지속적인 학습과 실험을 통해 더욱 섬세하고 효율적인 레이아웃을 만들어 나가겠습니다.</p>
+        </div>
+    </div>
 </div>
