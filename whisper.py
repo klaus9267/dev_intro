@@ -1,13 +1,13 @@
 from faster_whisper import WhisperModel, BatchedInferencePipeline
 import os
 
-date = "20250123-1"
+date = "20250123-2"
 
 # 모델 로드
 model = WhisperModel("medium", device="cuda", compute_type="float16")
 batched_model = BatchedInferencePipeline(model=model)
 segments, info = batched_model.transcribe(
-   date,
+   f"{date}.m4a",
    batch_size=8,  # 여기서 배치 사이즈 설정
    language="ko"  ,
    initial_prompt="This is a computer science lecture with Korean and English mixed"
@@ -25,7 +25,8 @@ def transcribe_audio(audio_path, output_path):
    # 결과 텍스트 저장
    with open(output_path, "w", encoding="utf-8") as f:
        for segment in segments:
-           f.write(segment.text + "\n")
+            timestamp = f"[{format_timestamp(segment.start)} --> {format_timestamp(segment.end)}] "
+            f.write(timestamp + segment.text + "\n")
 
 # 실행 예시
 
