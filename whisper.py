@@ -1,7 +1,7 @@
 from faster_whisper import WhisperModel, BatchedInferencePipeline
 import os
 
-date = "20250123-2"
+date = "20250124-2"
 
 # 모델 로드
 model = WhisperModel("medium", device="cuda", compute_type="float16")
@@ -12,6 +12,12 @@ segments, info = batched_model.transcribe(
    language="ko"  ,
    initial_prompt="This is a computer science lecture with Korean and English mixed"
 )
+
+def format_timestamp(seconds):
+    hours = int(seconds // 3600)          # 시간 계산
+    minutes = int((seconds % 3600) // 60) # 분 계산
+    secs = int(seconds % 60)              # 초 계산
+    return f"{hours:02d}:{minutes:02d}:{secs:02d}"  # 02d는 2자리 숫자로 표시 (예: 01, 02, ...)
 
 def transcribe_audio(audio_path, output_path):
    # 음성 파일 텍스트 변환
