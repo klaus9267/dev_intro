@@ -1,7 +1,91 @@
+/* 기본 리셋 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* 루트 변수 설정 */
+:root {
+  --primary-color: #0066cc;
+  --primary-hover: #003d7a;
+  --bg-color: #f5f5f5;
+  --text-color: #333;
+  --border-color: #2f95ff;
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 2px 4px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* 기본 스타일 */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  color: var(--text-color);
+  background-color: var(--bg-color);
+  padding: 2rem;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* 헤더 스타일 */
+header {
+  margin-bottom: 2rem;
+}
+
+h1 {
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.period {
+  background-color: #ffffff;
+  color: var(--text-color);
+  padding: 0.75rem 1rem;
+  border-radius: 3px;
+  display: block;
+  font-size: 0.9rem;
+  border-left: 4px solid var(--border-color);
+  margin: 1rem 0;
+  box-shadow: var(--shadow-sm);
+  width: 100%;
+  line-height: 1.5;
+}
+
+/* Day 섹션 스타일 */
+.day-section {
+  background-color: white;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  border-radius: 8px;
+  box-shadow: var(--shadow-md);
+  transition: all 0.3s ease;
+}
+
+.day-section:hover {
+  transform: scale(1.01);
+  box-shadow: var(--shadow-lg);
+}
+
+.day-title {
+  font-size: 1.4rem;
+  color: #2c3e50;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 0.5rem;
+}
+
+/* TIL 컨테이너 스타일 */
 .til-container {
   margin-top: 2rem;
   border-radius: 4px;
-  background-color: #fff;
+  background-color: white;
 }
 
 .til-header {
@@ -12,14 +96,17 @@
   cursor: pointer;
   background-color: #f8f9fa;
   border-radius: 4px;
+  border: 1px solid #eee;
 }
 
 .til-header h3 {
   margin: 0;
   font-size: 1rem;
   color: #555;
+  font-weight: 500;
 }
 
+/* 토글 버튼 스타일 */
 .toggle-btn {
   background: none;
   border: none;
@@ -34,13 +121,13 @@
   transform: rotate(180deg);
 }
 
+/* TIL 콘텐츠 스타일 */
 .til-content {
   padding: 1rem;
   background-color: white;
-  border-left: 3px solid #2f95ff;
+  border-left: 3px solid var(--border-color);
   margin: 0.5rem;
-  /* 내부 컨텐츠를 위한 패딩 추가 */
-  padding-left: 2rem; /* bullet point를 위한 여백 확보 */
+  padding-left: 2rem;
 }
 
 .til-content.hidden {
@@ -49,106 +136,28 @@
 
 .til-content ul,
 .til-content ol {
-  margin-left: 1rem; /* 리스트 자체에 여백 추가 */
-  margin-bottom: 1rem; /* 리스트 사이 간격 */
+  margin-left: 1rem;
+  margin-bottom: 1rem;
+  list-style-position: outside;
 }
 
 .til-content li {
-  margin-bottom: 0.5rem; /* 리스트 아이템 사이 간격 */
+  margin-bottom: 0.5rem;
 }
 
-/* 헤더 스타일링 */
 .til-content h3,
 .til-content h4 {
   margin-top: 1.5rem;
   margin-bottom: 1rem;
+  color: #2c3e50;
 }
 
 .til-text {
   color: #555;
   line-height: 1.6;
 }
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
 
-body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  line-height: 1.6;
-  color: #333;
-  background-color: #f5f5f5;
-  padding: 2rem;
-}
-
-.container {
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-hr,
-.section-divider {
-  height: 1px;
-  background-color: #eee;
-  border: none;
-  margin: 20px 0;
-}
-
-header {
-  margin-bottom: 2rem;
-}
-
-h1 {
-  color: #0066cc;
-  margin-bottom: 1rem;
-  font-size: 2rem;
-}
-
-.period {
-  background-color: #ffffff;
-  color: #000000;
-  padding: 0.75rem 1rem;
-  border-radius: 3px;
-  display: block;
-  font-size: 0.9rem;
-  border-left: 4px solid #2f95ff;
-  margin: 1rem 0;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-  width: 100%;
-  box-sizing: border-box;
-  line-height: 1.5;
-}
-
-.day-section {
-  background-color: white;
-  padding: 1.5rem;
-  margin-bottom: 1.5rem;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
-  cursor: pointer;
-}
-
-.day-section:hover {
-  transform: scale(1.02);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-}
-
-.day-title {
-  font-size: 1.4rem;
-  color: #2c3e50;
-  margin-bottom: 1rem;
-  border-bottom: 2px solid #eee;
-  padding-bottom: 0.5rem;
-}
-
-.content-title {
-  font-size: 1.1rem;
-  color: #666;
-  margin-bottom: 1rem;
-}
-
+/* 콘텐츠 리스트 스타일 */
 .content-list {
   list-style: none;
 }
@@ -161,29 +170,137 @@ h1 {
 
 .content-item::before {
   content: '•';
-  color: #0066cc;
+  color: var(--primary-color);
   position: absolute;
   left: 0;
   font-weight: bold;
 }
 
 .content-item a {
-  color: #0066cc;
+  color: var(--primary-color);
   text-decoration: none;
   transition: color 0.3s;
 }
 
 .content-item a:hover {
-  color: #003d7a;
+  color: var(--primary-hover);
   text-decoration: underline;
 }
 
+/* 구분선 스타일 */
+hr,
+.section-divider {
+  height: 1px;
+  background-color: #eee;
+  border: none;
+  margin: 20px 0;
+}
+
+/* 코드 블록 스타일 */
+.markdown-body {
+  background-color: #1e1e1e;
+  border-radius: 6px;
+  margin: 1rem 0;
+  overflow: hidden;
+}
+
+.markdown-body pre {
+  margin: 0;
+  padding: 1rem;
+  overflow-x: auto;
+}
+
+.markdown-body pre code {
+  font-family: 'Consolas', 'D2Coding', monospace;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #d4d4d4;
+  display: block;
+  white-space: pre;
+}
+
+/* 구문 강조 */
+.language-javascript .function {
+  color: #dcdcaa;
+}
+
+.language-javascript .keyword {
+  color: #569cd6;
+}
+
+.language-javascript .parameter {
+  color: #9cdcfe;
+}
+
+.language-javascript .comment {
+  color: #6a9955;
+  font-style: italic;
+}
+
+/* 스크롤바 */
+.markdown-body pre::-webkit-scrollbar {
+  height: 8px;
+  background-color: #1e1e1e;
+}
+
+.markdown-body pre::-webkit-scrollbar-thumb {
+  background-color: #404040;
+  border-radius: 4px;
+}
+
+.markdown-body pre::-webkit-scrollbar-thumb:hover {
+  background-color: #505050;
+}
+
+/* 반응형 스타일 */
 @media (max-width: 600px) {
   body {
     padding: 1rem;
   }
 
+  .container {
+    padding: 0;
+  }
+
   .day-section {
     padding: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .til-header {
+    padding: 0.75rem;
+  }
+
+  .til-content {
+    padding: 0.75rem;
+    padding-left: 1.5rem;
+    margin: 0.25rem;
+  }
+
+  .period {
+    padding: 0.5rem 0.75rem;
+  }
+
+  h1 {
+    font-size: 1.75rem;
+  }
+
+  .markdown-body pre {
+    padding: 0.75rem;
+  }
+
+  .markdown-body pre code {
+    font-size: 13px;
+  }
+}
+
+/* 작은 모바일 화면 대응 */
+@media (max-width: 400px) {
+  .til-header h3 {
+    font-size: 0.9rem;
+  }
+
+  .content-item {
+    padding-left: 1.25rem;
   }
 }

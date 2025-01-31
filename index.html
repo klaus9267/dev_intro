@@ -5,26 +5,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>프로그래머스 AI 백엔드 데브코스 1기</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism-tomorrow.min.css">
     <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism-tomorrow.min.css" rel="stylesheet" />
 </head>
 
 <body>
     <div class="container">
         <header>
             <h1>프로그래머스 AI 백엔드 데브코스 1기</h1>
-            <div class="period"><b>2025.01.16 ~ 2025.07.18</b>
+            <div class="period">
+                <b>2025.01.16 ~ 2025.07.18</b>
                 <br>
-                AI 백엔드 데브코스 1기 실습 기록
+                AI 백엔드 데브코스 1기 학습 기록
             </div>
         </header>
         <main id="content">
-            <!-- 여기에 각 day의 내용이 동적으로 로드됩니다 -->
+            <!-- 동적 콘텐츠가 로드됩니다 -->
         </main>
     </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-javascript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-bash.min.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            // 동적으로 추가된 요소들에 대한 이벤트 처리를 위해 
-            // 이벤트 위임(Event Delegation) 사용
             document.addEventListener('click', function (e) {
                 if (e.target.closest('.til-header')) {
                     const header = e.target.closest('.til-header');
@@ -37,7 +42,7 @@
             });
 
             async function loadDays() {
-                const days = ['2', '3', '4', '5', '6', '7'];
+                const days = ['2', '3', '4', '5', '6', '7', '8'];
                 const contentDiv = document.getElementById('content');
 
                 for (const day of days) {
@@ -45,6 +50,7 @@
                         const response = await fetch(`days/${day}/day${day}.html`);
                         const html = await response.text();
                         contentDiv.innerHTML += html;
+                        Prism.highlightAll(); // 코드 하이라이팅 적용
                     } catch (error) {
                         console.error(`Error loading day ${day}:`, error);
                     }
